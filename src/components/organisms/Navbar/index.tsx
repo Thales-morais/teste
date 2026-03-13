@@ -3,13 +3,12 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/cn";
-import { Button } from "@/components/atoms/Button";
-import { Icons } from "@/components/atoms/Icon";
 
 const navLinks = [
-  { label: "Design", href: "#design" },
-  { label: "Components", href: "#components" },
-  { label: "Animations", href: "#animations" },
+  { label: "Marca", href: "/brand" },
+  { label: "Componentes", href: "/components" },
+  { label: "Diretrizes", href: "/guidelines" },
+  { label: "Kit Criativos", href: "/kit-branding" },
   { label: "Docs", href: "/docs" },
 ];
 
@@ -28,24 +27,24 @@ export function Navbar() {
       <motion.header
         animate={
           scrolled
-            ? { backgroundColor: "rgba(0,0,0,0.85)", backdropFilter: "blur(24px)" }
-            : { backgroundColor: "rgba(0,0,0,0)", backdropFilter: "blur(0px)" }
+            ? { backgroundColor: "rgba(6,6,15,0.92)", backdropFilter: "blur(24px)" }
+            : { backgroundColor: "rgba(6,6,15,0)", backdropFilter: "blur(0px)" }
         }
         transition={{ duration: 0.3 }}
         className={cn(
           "fixed top-0 left-0 right-0 z-[200]",
           "border-b",
-          scrolled ? "border-white/[0.06]" : "border-transparent"
+          scrolled ? "border-purple-500/10" : "border-transparent"
         )}
       >
         <div className="container-nova flex items-center justify-between h-16">
           {/* Logo */}
           <a href="/" className="flex items-center gap-2.5 group">
-            <div className="h-7 w-7 rounded-lg bg-gradient-to-br from-[#0066FF] to-[#00D4FF] flex items-center justify-center">
-              <Icons.Sparkles className="h-3.5 w-3.5 text-white" />
+            <div className="h-8 w-8 rounded-xl bg-gradient-to-br from-[#7C3AED] to-[#2563EB] flex items-center justify-center shadow-lg shadow-purple-500/25">
+              <span className="text-white font-black text-sm">C</span>
             </div>
-            <span className="font-display text-lg font-bold tracking-tight text-white">
-              NOVA
+            <span className="font-bold text-lg tracking-tight text-white">
+              Criatis
             </span>
           </a>
 
@@ -59,7 +58,8 @@ export function Navbar() {
                   "px-4 py-2 rounded-lg text-sm font-medium",
                   "text-white/60 hover:text-white",
                   "hover:bg-white/[0.06]",
-                  "transition-all duration-200"
+                  "transition-all duration-200",
+                  link.label === "Kit Criativos" && "text-orange-400/80 hover:text-orange-300"
                 )}
               >
                 {link.label}
@@ -69,12 +69,18 @@ export function Navbar() {
 
           {/* CTA */}
           <div className="hidden md:flex items-center gap-3">
-            <Button variant="ghost" size="sm">
-              Sign in
-            </Button>
-            <Button variant="primary" size="sm" magnetic>
-              Get started
-            </Button>
+            <a
+              href="/docs"
+              className="px-4 py-2 rounded-lg text-sm font-medium text-white/60 hover:text-white hover:bg-white/[0.06] transition-all"
+            >
+              Ver Docs
+            </a>
+            <a
+              href="/kit-branding"
+              className="px-4 py-2 rounded-lg text-sm font-semibold bg-gradient-to-r from-[#7C3AED] to-[#2563EB] text-white hover:opacity-90 transition-opacity shadow-lg shadow-purple-500/20"
+            >
+              Kit Criativos
+            </a>
           </div>
 
           {/* Mobile menu button */}
@@ -83,7 +89,12 @@ export function Navbar() {
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Toggle menu"
           >
-            <Icons.Menu />
+            <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              {menuOpen
+                ? <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                : <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              }
+            </svg>
           </button>
         </div>
       </motion.header>
@@ -99,7 +110,7 @@ export function Navbar() {
             transition={{ duration: 0.2 }}
             className={cn(
               "fixed top-16 left-0 right-0 z-[199]",
-              "bg-black/95 backdrop-blur-2xl border-b border-white/[0.06]",
+              "bg-[#06060F]/95 backdrop-blur-2xl border-b border-purple-500/10",
               "p-4 flex flex-col gap-1"
             )}
           >
@@ -113,14 +124,6 @@ export function Navbar() {
                 {link.label}
               </a>
             ))}
-            <div className="flex flex-col gap-2 mt-3 pt-3 border-t border-white/[0.06]">
-              <Button variant="secondary" size="md" fullWidth>
-                Sign in
-              </Button>
-              <Button variant="primary" size="md" fullWidth>
-                Get started
-              </Button>
-            </div>
           </motion.div>
         )}
       </AnimatePresence>

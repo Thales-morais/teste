@@ -3,10 +3,10 @@ import "./globals.css";
 import { ToastProvider } from "@/components/molecules/Toast";
 
 export const metadata: Metadata = {
-  title: "NOVA — Design System",
+  title: "Criatis — Design System",
   description:
-    "A complete design system inspired by Apple. Built with Next.js, Framer Motion, and GSAP.",
-  keywords: ["design system", "UI", "components", "animations", "TypeScript", "Next.js"],
+    "Manual de marca e design system oficial da Criatis. Guia completo para designers e desenvolvedores.",
+  keywords: ["design system", "marca", "branding", "criatis", "UI", "components", "Next.js"],
 };
 
 export default function RootLayout({
