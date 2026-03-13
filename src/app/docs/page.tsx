@@ -9,46 +9,46 @@ import { staggerContainer, staggerItem } from "@/animations/variants";
 const sections = [
   {
     href: "/docs/colors",
-    title: "Colors",
-    description: "The complete NOVA color system — backgrounds, accents, text, and semantic tokens.",
-    icon: <div className="h-5 w-5 rounded-full bg-gradient-to-br from-[#0066FF] to-[#00D4FF]" />,
+    title: "Cores",
+    description: "Sistema de cores Criatis — backgrounds, acentos, texto e tokens semânticos.",
+    icon: <div className="h-5 w-5 rounded-full bg-gradient-to-br from-[#7C3AED] to-[#2563EB]" />,
     tag: "Tokens",
   },
   {
     href: "/docs/typography",
-    title: "Typography",
-    description: "Type scale, font families, weights, and display styles for NOVA.",
+    title: "Tipografia",
+    description: "Escala tipográfica, famílias, pesos e estilos display da Criatis.",
     icon: <span className="text-white font-bold text-lg leading-none">Aa</span>,
     tag: "Tokens",
   },
   {
     href: "/docs/components",
-    title: "Components",
-    description: "Live demos and usage of all atoms, molecules, and organisms.",
-    icon: <Icons.Layers className="h-5 w-5 text-[#0066FF]" />,
+    title: "Componentes",
+    description: "Demos e uso de todos os átomos, moléculas e organismos.",
+    icon: <Icons.Layers className="h-5 w-5 text-[#7C3AED]" />,
     tag: "Components",
   },
   {
     href: "/docs/animations",
-    title: "Animations",
-    description: "Animation variants, hooks, and usage examples with Framer Motion and GSAP.",
-    icon: <Icons.Zap className="h-5 w-5 text-[#FFD60A]" />,
+    title: "Animações",
+    description: "Variants, hooks e exemplos de uso com Framer Motion e GSAP.",
+    icon: <Icons.Zap className="h-5 w-5 text-[#F97316]" />,
     tag: "Motion",
   },
 ];
 
 export default function DocsPage() {
   return (
-    <div className="min-h-screen bg-[#000000]">
+    <div className="min-h-screen" style={{ background: "#06060F" }}>
       {/* Header */}
-      <div className="border-b border-white/[0.06] bg-[#0A0A0A]">
+      <div className="border-b border-white/[0.06] bg-[#0D0D1A]">
         <div className="container-nova py-6 flex items-center justify-between">
           <a href="/" className="flex items-center gap-2.5">
-            <div className="h-7 w-7 rounded-lg bg-gradient-to-br from-[#0066FF] to-[#00D4FF] flex items-center justify-center">
-              <Icons.Sparkles className="h-3.5 w-3.5 text-white" />
+            <div className="h-7 w-7 rounded-xl bg-gradient-to-br from-[#7C3AED] to-[#2563EB] flex items-center justify-center shadow-lg shadow-purple-500/25">
+              <span className="text-white font-black text-xs">C</span>
             </div>
-            <span className="font-bold text-lg text-white" style={{ fontFamily: "'Sora', sans-serif" }}>
-              NOVA
+            <span className="font-bold text-lg text-white">
+              Criatis
             </span>
             <span className="text-white/20 mx-1">/</span>
             <span className="text-sm text-white/50">Docs</span>
@@ -58,7 +58,7 @@ export default function DocsPage() {
             href="/"
             className="text-sm text-white/40 hover:text-white transition-colors"
           >
-            ← Back to showcase
+            ← Voltar ao início
           </a>
         </div>
       </div>
@@ -71,13 +71,13 @@ export default function DocsPage() {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="mb-16"
         >
-          <span className="label-overline">Documentation</span>
+          <span className="label-overline">Documentação Técnica</span>
           <h1 className="heading-xl text-5xl md:text-6xl text-white mt-3 mb-4">
-            NOVA Design System
+            Criatis Design System
           </h1>
           <p className="text-white/50 text-lg max-w-2xl leading-relaxed">
-            Everything you need to build with NOVA. Browse tokens, components,
-            animations, and patterns.
+            Tudo que você precisa para desenvolver com o design system Criatis.
+            Tokens, componentes, animações e padrões.
           </p>
         </motion.div>
 
@@ -113,7 +113,7 @@ export default function DocsPage() {
                 <div className="flex-1">
                   <div className="flex items-center gap-2 mb-1">
                     <h2 className="text-base font-semibold text-white">{section.title}</h2>
-                    <span className="text-[0.65rem] px-2 py-0.5 rounded-md bg-[#0066FF]/15 text-[#0066FF] font-medium border border-[#0066FF]/20">
+                    <span className="text-[0.65rem] px-2 py-0.5 rounded-md bg-[#7C3AED]/15 text-[#9D5FF0] font-medium border border-[#7C3AED]/20">
                       {section.tag}
                     </span>
                   </div>
@@ -133,17 +133,17 @@ export default function DocsPage() {
           className="mt-16 p-6 rounded-2xl bg-white/[0.03] border border-white/[0.06]"
         >
           <h3 className="text-base font-semibold text-white mb-3">Quick Start</h3>
-          <pre className="text-sm font-mono text-[#00D4FF] bg-[#0A0A0A] rounded-xl p-4 overflow-x-auto">
-            <code>{`# Install dependencies
+          <pre className="text-sm font-mono text-[#9D5FF0] bg-[#0D0D1A] rounded-xl p-4 overflow-x-auto">
+            <code>{`# Instalar dependências
 npm install framer-motion gsap embla-carousel-react
 npm install @radix-ui/react-dialog @radix-ui/react-accordion
 
-# Import styles
-import '@nova/styles/globals.css'
+# Importar estilos
+import '@criatis/styles/globals.css'
 
-# Use a component
-import { Button } from '@nova/components'
-<Button variant="primary" magnetic>Get started</Button>`}</code>
+# Usar um componente
+import { Button } from '@criatis/components'
+<Button variant="primary" magnetic>Começar</Button>`}</code>
           </pre>
         </motion.div>
       </div>
