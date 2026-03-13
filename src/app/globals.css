@@ -1,0 +1,276 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================
+   NOVA DESIGN SYSTEM — CSS Variables / Tokens
+   ============================================ */
+
+:root {
+  /* Backgrounds */
+  --nova-bg-primary: #000000;
+  --nova-bg-secondary: #0A0A0A;
+  --nova-bg-tertiary: #141414;
+  --nova-bg-elevated: #1C1C1E;
+  --nova-bg-glass: rgba(255, 255, 255, 0.04);
+  --nova-bg-glass-hover: rgba(255, 255, 255, 0.08);
+
+  /* Accent Colors */
+  --nova-accent-blue: #0066FF;
+  --nova-accent-blue-light: #338AFF;
+  --nova-accent-blue-dark: #0052CC;
+  --nova-accent-cyan: #00D4FF;
+  --nova-accent-gradient: linear-gradient(135deg, #0066FF 0%, #00D4FF 100%);
+
+  /* Text */
+  --nova-text-primary: #FFFFFF;
+  --nova-text-secondary: rgba(255, 255, 255, 0.6);
+  --nova-text-tertiary: rgba(255, 255, 255, 0.3);
+  --nova-text-quaternary: rgba(255, 255, 255, 0.15);
+
+  /* Borders */
+  --nova-border: rgba(255, 255, 255, 0.08);
+  --nova-border-hover: rgba(255, 255, 255, 0.16);
+  --nova-border-accent: rgba(0, 102, 255, 0.4);
+  --nova-border-glass: rgba(255, 255, 255, 0.1);
+
+  /* Shadows */
+  --nova-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --nova-shadow-md: 0 8px 24px rgba(0, 0, 0, 0.4);
+  --nova-shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.5);
+  --nova-shadow-xl: 0 24px 64px rgba(0, 0, 0, 0.6);
+  --nova-shadow-glow: 0 0 40px rgba(0, 102, 255, 0.25);
+  --nova-shadow-glow-lg: 0 0 80px rgba(0, 102, 255, 0.4);
+
+  /* Blur */
+  --nova-blur-sm: 8px;
+  --nova-blur-md: 20px;
+  --nova-blur-lg: 40px;
+  --nova-blur-xl: 80px;
+
+  /* Border Radius */
+  --nova-radius-xs: 4px;
+  --nova-radius-sm: 8px;
+  --nova-radius-md: 12px;
+  --nova-radius-lg: 16px;
+  --nova-radius-xl: 24px;
+  --nova-radius-2xl: 32px;
+  --nova-radius-full: 9999px;
+
+  /* Animation Timing */
+  --nova-ease-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --nova-ease-slow: cubic-bezier(0.16, 1, 0.3, 1);
+  --nova-ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --nova-ease-out: cubic-bezier(0, 0, 0.2, 1);
+
+  --nova-duration-fast: 150ms;
+  --nova-duration-base: 300ms;
+  --nova-duration-slow: 600ms;
+  --nova-duration-slower: 1000ms;
+}
+
+/* ============================================
+   BASE STYLES
+   ============================================ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background-color: var(--nova-bg-primary);
+  color: var(--nova-text-primary);
+  font-family: 'Inter', system-ui, sans-serif;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+::selection {
+  background: rgba(0, 102, 255, 0.3);
+  color: #FFFFFF;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+
+@layer utilities {
+  .glass {
+    background: var(--nova-bg-glass);
+    backdrop-filter: blur(var(--nova-blur-md));
+    -webkit-backdrop-filter: blur(var(--nova-blur-md));
+    border: 1px solid var(--nova-border-glass);
+  }
+
+  .glass-strong {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(var(--nova-blur-lg));
+    -webkit-backdrop-filter: blur(var(--nova-blur-lg));
+    border: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  .text-gradient {
+    background: var(--nova-accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-white {
+    background: linear-gradient(180deg, #FFFFFF 0%, rgba(255,255,255,0.5) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glow-blue {
+    box-shadow: var(--nova-shadow-glow);
+  }
+
+  .glow-blue-lg {
+    box-shadow: var(--nova-shadow-glow-lg);
+  }
+
+  .shimmer-bg {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255,255,255,0.06) 50%,
+      transparent 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2s linear infinite;
+  }
+
+  .grid-pattern {
+    background-image:
+      linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .dot-pattern {
+    background-image: radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* ============================================
+   COMPONENT BASE STYLES
+   ============================================ */
+
+@layer components {
+  .container-nova {
+    @apply mx-auto w-full max-w-7xl px-6 md:px-10 lg:px-16;
+  }
+
+  .section-nova {
+    @apply relative w-full overflow-hidden;
+  }
+
+  .heading-display {
+    font-family: 'Sora', system-ui, sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 1;
+  }
+
+  .heading-xl {
+    font-family: 'Sora', system-ui, sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+  }
+
+  .heading-lg {
+    font-family: 'Sora', system-ui, sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+
+  .label-overline {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--nova-accent-blue);
+  }
+
+  .focus-ring {
+    @apply outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 focus-visible:ring-offset-2 focus-visible:ring-offset-black;
+  }
+}
+
+/* ============================================
+   KEYFRAMES
+   ============================================ */
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(0, 102, 255, 0.2); }
+  50% { box-shadow: 0 0 60px rgba(0, 102, 255, 0.5); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes nebula {
+  0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.5; }
+  50% { transform: scale(1.15) rotate(8deg); opacity: 0.7; }
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+code {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.875em;
+  background: var(--nova-bg-tertiary);
+  padding: 0.1em 0.4em;
+  border-radius: var(--nova-radius-xs);
+  color: var(--nova-accent-cyan);
+}
